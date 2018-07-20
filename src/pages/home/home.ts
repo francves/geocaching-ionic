@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { LugarPage } from '../lugar/lugar';
 
 @Component({
   selector: 'page-home',
@@ -9,6 +10,17 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
+  }
+  abrirLugar(){
+  	this.navCtrl.push(LugarPage, {});
+  }
+
+  irAVistaDeDetalle(){
+
+  }
+
+  irAVistaDeDetalleExistente(){
+  	
   }
 
 }
