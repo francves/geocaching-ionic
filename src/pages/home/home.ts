@@ -16,11 +16,11 @@ export class HomePage {
   }
 
   irAVistaDeDetalle(){
-
+  	this.navCtrl.push(LugarPage, {lugar: {}});
   }
 
-  irAVistaDeDetalleExistente(){
-  	
+  irAVistaDeDetalleExistente(lugar){
+  	this.navCtrl.push(LugarPage, {lugar: lugar});
   }
 
 }

@@ -15,7 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LugarPage {
 
+	lugar;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	this.lugar = navParams.get('lugar');
   }
 
   ionViewDidLoad() {
