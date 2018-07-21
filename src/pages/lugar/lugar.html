@@ -17,16 +17,16 @@
  <ion-list>
  	<ion-item>
  		<ion-label floating>Nombre</ion-label>
- 		<ion-input type="text"></ion-input>
+ 		<ion-input type="text" [(ngModel)]="lugar.nombre"></ion-input>
  	</ion-item>
  	<ion-item>
  		<ion-label floating>Dirección</ion-label>
- 		<ion-input type="text"></ion-input>
+ 		<ion-input type="text" [(ngModel)]="lugar.direccion"></ion-input>
  	</ion-item>
  	<ion-list>
  		<ion-item>
  			<ion-label>Categoría</ion-label>
- 			<ion-select>
+ 			<ion-select [(ngModel)]="lugar.categoria">
  				<ion-option value="AireLibre">Aire Libre</ion-option>
  				<ion-option value="AireLibre">Aire Libre</ion-option>
  			</ion-select>
@@ -34,8 +34,8 @@
  	</ion-list>
  	<ion-item>
  	<ion-label floating>Descripcion</ion-label>
- 	<ion-textarea></ion-textarea>
+ 	<ion-textarea [(ngModel)]="lugar.descripcion"></ion-textarea>
  </ion-item>
  </ion-list>
- <button ion-button full>Guardar Nota</button>
+ <button ion-button full (click)="guardarLugar()">Guardar Lugar</button>
 </ion-content>
