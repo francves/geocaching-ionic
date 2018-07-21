@@ -30,4 +30,12 @@ export class HomePage {
   	this.navCtrl.push(LugarPage, {lugar: lugar});
   }
 
+  deleteLugar(lugar){
+  	if(confirm('Seguro que desea borrar este lugar?')){
+  		return this.lugaresProvider.deleteLugar(lugar).then( () =>{
+  			alert('Lugar eliminado correctamente');
+  		});
+  	}
+  }
+
 }
