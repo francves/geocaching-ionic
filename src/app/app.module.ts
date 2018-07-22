@@ -10,11 +10,17 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LugarPage } from '../pages/lugar/lugar';
 import { AboutPage } from '../pages/about/about';
+import { LoginPage } from '../pages/login/login';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LugaresProvider } from '../providers/lugares/lugares';
+import { AuthProvider } from '../providers/auth/auth';
+
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBhCugolV85M5LzK4m84ticqZJetIRdzbU",
@@ -33,14 +39,17 @@ export const firebaseConfig = {
     PerfilPage,
     TabsPage,
     LugarPage,
-    AboutPage
+    AboutPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,13 +58,16 @@ export const firebaseConfig = {
     PerfilPage,
     TabsPage,
     LugarPage,
-    AboutPage
+    AboutPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LugaresProvider
+    LugaresProvider,
+    AuthProvider,
+    HttpClient
   ]
 })
 export class AppModule {}

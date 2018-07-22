@@ -16,7 +16,7 @@ export class LugaresProvider {
     console.log('Hello LugaresProvider Provider');
   }
   public getLugares(){
-  	return this.afDB.list('/lugares/');
+  	return this.afDB.list('lugares/');
   }
 
   public getLugar(id){

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,11 +17,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  	public viewCtrl: ViewController, public authProvider: AuthProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  loginFacebook(){
+    this.authProvider.loginWithFacebook().then( (response) => {
+      alert('Loggeado con éxito');
+      this.viewCtrl.dismiss();
+      localStorage.setItem( 'loginData', JSON.stringify(response));
+    });
+  }
+
+  cancerlar(){
+  	this.viewCtrl.dismiss();
   }
 
 }
